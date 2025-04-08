@@ -1,0 +1,24 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Rooms { // Plural name for Room
+  id        String     @id @default(uuid())
+  name      String     // Human-readable name for the room
+  messages  Messages[] @relation(onDelete: CASCADE) // Set up cascading delete
+  createdAt DateTime   @default(now())
+}
+
+model Messages { // Plural name for Message
+  id        String  @id @default(uuid())
+  sender    String
+  content   String
+  createdAt DateTime @default(now())
+  roomId    String   // Foreign key to Rooms
+  room      Rooms    @relation(fields: [roomId], references: [id]) // Reference to Rooms
+}

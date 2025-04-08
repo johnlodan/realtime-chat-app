@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es6", // Specify ECMAScript target version
+    "module": "commonjs", // Use CommonJS module format
+    "esModuleInterop": true, // Enables emit interoperability between CommonJS and ES Modules
+    "strict": true, // Enable all strict type-checking options
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file
+    "types": [
+      "mocha",
+      "chai",
+      "chai-http"
+    ] // Include types for Mocha and Chai
+  },
+  "include": [
+    "bin/**/*", // Include files in the bin directory
+    "test/**/*" // Include files in the test directory
+  ],
+  "exclude": [
+    "node_modules" // Exclude the node_modules directory
+  ]
+}

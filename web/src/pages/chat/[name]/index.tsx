@@ -95,5 +95,4 @@ export default function Main() {
       <KeyboardComponent roomId={roomData?.id} username={username} />
     </div>
   );
-
 }

@@ -35,8 +35,6 @@ export const generateRandomName = () => {
     return `${firstName} ${lastName}`; // Return full name in 'firstName lastName' format
 }
 
-
-
 export const getAvatarColor = (username: string) => {
     const colors = ['#992F1F', '#1F992F', '#1F2F99', '#991F5F', '#998A1F'];
     const index = username.charCodeAt(0) % colors.length;

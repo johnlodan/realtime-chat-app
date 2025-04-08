@@ -23,8 +23,6 @@ export default function LandingPage() {
     async function handleJoinRoom() {
         try {
             const response = await checkRoom(roomId);
-            console.log("Room check response:", response);
-
             if (response?.data?.id) {
                 console.log("Room ID valid. Redirecting to chat:", roomId);
                 router.push(`/chat/${roomId}`);
@@ -75,5 +73,4 @@ export default function LandingPage() {
             </div>
         </div>
     );
-
 }

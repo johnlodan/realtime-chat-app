@@ -7,7 +7,6 @@
     "skipLibCheck": true, // Skip type checking of declaration files
     "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file
     "types": [
-      "mocha",
       "chai",
       "chai-http"
     ] // Include types for Mocha and Chai

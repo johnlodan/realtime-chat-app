@@ -134,7 +134,7 @@ io.on('connection', (socket) => {
       if (users.has(socket.id)) {
         users.delete(socket.id); // Remove user from Set
         // Emit updated typing users to the room
-        socket.to(roomId).emit(`userTyping.${roomId}`, Array.from(users));
+        socket.to(roomId).emit(`userTyping`, Array.from(users));
       }
     });
   });

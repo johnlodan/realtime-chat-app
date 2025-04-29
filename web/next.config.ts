@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  basePath: "/chat",
   reactStrictMode: false,
   env: {
     BASE_API: process.env.BASE_API

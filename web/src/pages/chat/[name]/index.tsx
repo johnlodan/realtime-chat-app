@@ -76,8 +76,10 @@ export default function Main() {
     }
   };
 
+  const { basePath } = useRouter();
+
   return (
-    <div className="flex flex-col h-screen bg-gray-100 bg-cover bg-center p-4" style={{ backgroundImage: 'url(/images/chat-bg.jpg)' }}>
+    <div className="flex flex-col h-screen bg-gray-100 bg-cover bg-center p-4" style={{ backgroundImage: `url(${basePath}/images/chat-bg.jpg)` }}>
       <h1 className="text-3xl font-bold mb-4 text-center text-white drop-shadow text-shadow">
         CHATROOM: {name}
       </h1>

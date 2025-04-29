@@ -3,7 +3,7 @@
 import Button from '@/components/button';
 import { useCreateRoomMutation, useLazyCheckRoomByNameQuery } from '@/services/rooms';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import '../styles/globals.scss'
 export default function LandingPage() {
     const router = useRouter();
@@ -36,8 +36,9 @@ export default function LandingPage() {
         }
     }
 
+    const { basePath } = useRouter();
     return (
-        <div className="flex items-center justify-center h-screen bg-cover bg-center p-3" style={{ backgroundImage: 'url(/images/bg.jpg)' }}>
+        <div className="flex items-center justify-center h-screen bg-cover bg-center p-3" style={{ backgroundImage: `url(${basePath}/images/bg.jpg)` }}>
             <div className="bg-white bg-opacity-80 rounded-lg shadow-lg p-6 md:p-8 text-center w-full max-w-xl">
                 <h1 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-gray-800 text-shadow">
                     Welcome! Enjoy chatting in real-time with friends — completely free and fun!

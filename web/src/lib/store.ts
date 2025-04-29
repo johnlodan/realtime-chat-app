@@ -1,11 +1,11 @@
 
 
-import { configureStore, Middleware, MiddlewareAPI, isRejected } from '@reduxjs/toolkit'
+import { configureStore, Middleware, isRejected } from '@reduxjs/toolkit'
 import { createWrapper } from 'next-redux-wrapper'
 import usersSlice from '../slices/users'
 import { rooms } from '@/services/rooms'
 
-export const makeStore = (context?: any) => {
+export const makeStore = () => {
   return configureStore({
     reducer: {
       getUsersSlice: usersSlice,
@@ -21,7 +21,7 @@ export const makeStore = (context?: any) => {
 }
 
 export const rtkQueryErrorLogger: Middleware =
-  (api: MiddlewareAPI) => (next) => (action: any) => {
+  () => (next) => (action: any) => {
     // isRejectedWithValue Or isRejected
     if (isRejected(action)) {
       if (typeof window !== "undefined") { }

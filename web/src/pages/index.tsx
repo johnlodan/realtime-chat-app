@@ -3,8 +3,7 @@
 import Button from '@/components/button';
 import { useCreateRoomMutation, useLazyCheckRoomByNameQuery } from '@/services/rooms';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import '../styles/globals.scss'
+import { useState } from 'react';
 export default function LandingPage() {
     const router = useRouter();
     const [showError, setShowError] = useState("")

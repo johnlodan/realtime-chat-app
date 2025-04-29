@@ -8,7 +8,7 @@ const usersSlice = createSlice({
         error: null,
     },
     reducers: {},
-    extraReducers: (builder) => {
+    extraReducers: () => {
         // builder
         //     .addMatcher(getCurrentUser.matchFulfilled, (state: any, action) => {
         //         state.current = action.payload;

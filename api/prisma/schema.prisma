@@ -9,7 +9,7 @@ generator client {
 
 model Rooms { // Plural name for Room
   id        String     @id @default(uuid())
-  name      String     // Human-readable name for the room
+  name      String     
   messages  Messages[] @relation(onDelete: CASCADE) // Set up cascading delete
   createdAt DateTime   @default(now())
 }

@@ -4,7 +4,6 @@ import Button from '@/components/button';
 import { useCreateRoomMutation, useLazyCheckRoomByNameQuery } from '@/services/rooms';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import '../styles/globals.scss'
 export default function LandingPage() {
     const router = useRouter();
     const [showError, setShowError] = useState("")

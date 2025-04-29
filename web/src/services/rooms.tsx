@@ -28,7 +28,7 @@ export const rooms = createApi({
             providesTags: ['rooms'],
         }),
         createRoom: builder.mutation({
-            query: (data) => ({
+            query: () => ({
                 url: `room`,
                 method: 'POST',
             }),

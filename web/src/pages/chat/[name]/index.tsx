@@ -68,7 +68,7 @@ export default function Main() {
       socket.off(`userTyping`);
       socket.disconnect();
     };
-  }, [roomData]);
+  }, [roomData, handleUserTyping]);
 
   const scrollToBottom = () => {
     if (messageEndRef.current) {

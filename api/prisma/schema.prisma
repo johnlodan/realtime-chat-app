@@ -7,18 +7,18 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Rooms { // Plural name for Room
+model Rooms {
   id        String     @id @default(uuid())
-  name      String     
-  messages  Messages[] @relation(onDelete: CASCADE) // Set up cascading delete
+  name      String
+  messages  Messages[]
   createdAt DateTime   @default(now())
 }
 
-model Messages { // Plural name for Message
+model Messages {
   id        String  @id @default(uuid())
   sender    String
   content   String
   createdAt DateTime @default(now())
   roomId    String   // Foreign key to Rooms
-  room      Rooms    @relation(fields: [roomId], references: [id]) // Reference to Rooms
+  room      Rooms    @relation(fields: [roomId], references: [id], onDelete: Cascade)
 }

@@ -18,7 +18,7 @@ const server = http.createServer(app); // Create the server instance
 
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3000", "http://192.168.100.46:3000"],
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -87,7 +87,12 @@ io.on('connection', (socket) => {
         },
       });
 
-      io.emit('newMessage', message);
+      // Emit to the sender first
+      socket.emit('newMessage', message);
+
+      // Emit to everyone else in the room
+      io.to(roomId).emit('newMessage', message);
+      console.log(`Message sent to room ${roomId}:`, message);
     } else {
       console.error('Content and sender must be provided.');
     }
@@ -141,7 +146,7 @@ io.on('connection', (socket) => {
 });
 
 // Start the server on port 8001
-const PORT = 8001;
+const PORT = process.env.APP_PORT || 8001;
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

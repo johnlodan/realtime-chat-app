@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { io as socketIo } from 'socket.io-client';
 import { IMessage } from '../../../types/message';
 import { useRouter } from 'next/router'
@@ -31,10 +31,10 @@ export default function Main() {
     }
   }, []);
 
-  const handleUserTyping = (users: string[]) => {
+  const handleUserTyping = useCallback((users: string[]) => {
     const filteredUsers = users.filter((user) => user !== username);
     setTypingUsers(filteredUsers);
-  };
+  }, [username]);
 
   useEffect(() => {
     const socket = socketIo(BASE_API);
